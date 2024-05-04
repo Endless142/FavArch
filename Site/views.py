@@ -6,3 +6,6 @@ def Main(request):
 def Libary(request):
     books = Book.objects.all()
     return render(request, 'Site/Библиотека.html', {'books': books})
+
+def Error(request):
+    return render(request, 'Site/Error.html')

@@ -4,19 +4,17 @@
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Библиотека</title>
+    <title>О нас</title>
     <link rel="stylesheet" href="{% static 'Site/css/main.css' %}" media="screen">
-    <link rel="stylesheet" href="{% static 'Site/css/Библиотека.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'Site/css/О-нас.css' %}" media="screen">
      <link rel="stylesheet" href="{% static 'Site/css/style.css' %}" media="screen">
     <script src="/static/Site/js/jquery.js"></script>
     <script class="u-script" type="text/javascript" src="{% static 'Site/js/Scrypt.js' %}" defer=""></script>
     <meta name="generator" content="Nicepage 6.5.3, nicepage.com">
-    <meta name="referrer" content="origin">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    
-    
-    
-    
+
+
+
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -24,7 +22,7 @@
 		"logo": "images/Simple_logo.png"
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Библиотека">
+    <meta property="og:title" content="О нас">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
@@ -37,7 +35,7 @@
             <a href="" class="u-hidden-xs u-image u-logo u-image-2" data-image-width="620" data-image-height="163">
               <img src="{% static 'Site/img/Logo.png'%}" class="u-logo-image u-logo-image-2">
             </a>
-             {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
 
                     <form action="{% url 'logout' %}" method="post" type="submit" value="Logout">
                     <a class="Btn-prof" href="{% url 'profile' %}">
@@ -57,7 +55,7 @@
 
               {% else %}
                 <a href="{% url 'login' %}" class="u-border-2 u-border-grey-90 u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-1">Вход</a>
-                <a href="http://127.0.0.1:8000/Error" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-2">Регистрация</a>
+                <a href="{% url 'register' %}" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-2">Регистрация</a>
               {% endif %}
             <nav class="u-hidden-lg u-hidden-xl u-menu u-menu-one-level u-offcanvas u-menu-1">
               <div class="menu-collapse">
@@ -70,8 +68,8 @@
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
-
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="О-нас.html">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Вход.html">Вход</a>
 </li></ul>
               </div>
               <div class="u-custom-menu u-nav-container-collapse">
@@ -80,8 +78,8 @@
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
-
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="О-нас.html">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Вход.html">Вход</a>
 </li></ul>
                   </div>
                 </div>
@@ -89,11 +87,11 @@
               </div>
             </nav>
           </div>
-          
-          
-          
-          
-          
+
+
+
+
+
         </div>
         <div class="u-hidden-md u-hidden-sm u-hidden-xs u-section-row u-section-row-2" id="sec-362f">
           <div class="u-clearfix u-sheet u-valign-middle u-sheet-2">
@@ -108,7 +106,7 @@
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-spacing-5 u-unstyled"><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/" style="--radius:50px; padding: 10px 122px;">Главная</a>
 </li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/Libary" style="--radius:50px; padding: 10px 122px;">Библеотека</a>
-</li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/Error" style="--radius:50px; padding: 10px 122px;">О нас</a>
+</li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="О-нас.html" style="--radius:50px; padding: 10px 122px;">О нас</a>
 </li></ul>
               </div>
               <div class="u-custom-menu u-nav-container-collapse">
@@ -117,7 +115,7 @@
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библеотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="О-нас.html">О нас</a>
 </li></ul>
                   </div>
                 </div>
@@ -134,9 +132,9 @@
               </div>
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/" style="padding: 10px 124px;">Главная</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary" style="padding: 10px 124px;">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error" style="padding: 10px 124px;">О нас</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error" style="padding: 10px 124px;">Магазин</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Библиотека.html" style="padding: 10px 124px;">Библиотека</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary" style="padding: 10px 124px;">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="products/products.html" style="padding: 10px 124px;">Магазин</a>
 </li></ul>
               </div>
               <div class="u-custom-menu u-nav-container-collapse">
@@ -145,8 +143,8 @@
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">Магазин</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="О-нас.html">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="products/products.html">Магазин</a>
 </li></ul>
                   </div>
                 </div>
@@ -154,114 +152,47 @@
               </div>
             </nav>
           </div>
-          
-          
-          
-          
-          
+
+
+
+
+
         </div>
       </div></header>
-    <section class="u-clearfix u-section-1" id="sec-d6cb">
+    <section class="u-clearfix u-container-align-center u-section-1" id="sec-f91d">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-expanded-width u-form u-form-1">
+        <div class="u-container-align-center u-container-style u-grey-10 u-group u-group-1">
+            <div class="detail">
+                <h3>{{article.title}}</h3>
+            <span class="u-meta-author u-meta-icon">{{ article.author }} | {{ article.date }}</span>
+             <pre style="white-space:pre-wrap;">
+                 {{article.text}}
+             </pre>
 
-           <form method="GET">
-    <div>
-      <label for="genre">Жанр:</label>
-      <select name="genre" id="genre">
-        <option value="">Все жанры</option>
-        {% for genre in genres %}
-          <option value="{{ genre.id }}">{{ genre.name }}</option>
-        {% endfor %}
-      </select>
-    </div>
-
-    <div>
-      <label for="author">Автор:</label>
-      <select name="author" id="author">
-        <option value="">Все авторы</option>
-        {% for author in authors %}
-          <option value="{{ author.id }}">{{ author.last_name }}</option>
-        {% endfor %}
-      </select>
-    </div>
-
-    <button type="submit">Фильтровать</button>
-  </form>
+            </div>
 
 
 
-          </form>
+
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-section-2" id="sec-2291">
-      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
-        <div class="u-expanded-width u-layout-grid u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-              {% for el in books %}
-            <div class="u-border-2 u-border-grey-75 u-container-style u-custom-color-2 u-list-item u-radius u-repeater-item u-shape-round u-list-item-1">
 
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                <img class="u-image u-image-contain u-image-round u-radius u-image-1" src="{{ el.image.url }}" alt="" data-image-width="933" data-image-height="999">
-                <h4 class="u-text u-text-default u-text-1">Название: {{el.title}}</h4>
-                <p class="u-text u-text-default u-text-2">Жанр: {{el.genre}}</p>
-                <p class="u-text u-text-default u-text-3">Автор: {{el.author}}</p>
-                <div class="u-border-1 u-border-grey-75 u-custom-color-1 u-hidden-xs u-radius u-shape u-shape-round u-shape-1"></div>
-                <p class="u-hidden-xs u-text u-text-4">Описание:&nbsp;</p>
-                <a href="{% url 'book-add' el.id %}" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hover-grey-60 u-none u-radius u-btn-1"><span class="u-file-icon u-icon u-text-black u-icon-1"><img src="{% static 'Site/img/Plus.png' %}" alt=""></span>
-                </a>
-              </div>
 
-            </div>
-              {% endfor %}
-              <!--
-            <div class="u-border-2 u-border-grey-75 u-container-style u-custom-color-2 u-list-item u-radius u-repeater-item u-shape-round u-list-item-2">
-              <div class="u-container-layout u-similar-container u-container-layout-2">
-                <img class="u-image u-image-contain u-image-round u-radius u-image-2" src="https://www.centrmag.ru/catalog/ss22_160321.jpg" alt="" data-image-width="933" data-image-height="999">
-                <h4 class="u-text u-text-default u-text-5">Пример заголовка</h4>
-                <p class="u-text u-text-default u-text-6">Пример текста. Кликните, чтобы выбрать элемент "Текст".</p>
-                <p class="u-text u-text-default u-text-7">Жанр:</p>
-                <div class="u-border-1 u-border-grey-75 u-hidden-xs u-palette-1-base u-radius u-shape u-shape-round u-shape-2"></div>
-                <p class="u-hidden-xs u-text u-text-8">Пример текста. Кликните, чтобы выбрать элемент "Текст".</p>
-                <a href="https://nicepage.com/wordpress-themes" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hover-grey-60 u-none u-radius u-btn-2"><span class="u-icon u-text-palette-1-base u-icon-2"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><circle cx="181.333" cy="437.333" r="53.333"></circle><path d="M509.867,89.6c-2.133-2.133-4.267-4.267-8.533-4.267H96L85.333,29.867c-2.133-4.267-6.4-8.533-10.667-8.533h-64 C4.267,21.333,0,25.6,0,32s4.267,10.667,10.667,10.667h55.467l51.2,260.267c8.533,34.133,38.4,59.733,74.667,59.733h245.333 c6.4,0,10.667-4.267,10.667-10.667c0-6.4-4.267-10.667-10.667-10.667H192c-17.067,0-34.133-8.533-42.667-23.467L460.8,275.2 c4.267,0,8.533-4.267,8.533-8.533L512,96C512,96,512,91.733,509.867,89.6z"></path><circle cx="394.667" cy="437.333" r="53.333"></circle></svg></span>
-                </a>
-              </div>
-            </div>
-            <div class="u-border-2 u-border-grey-75 u-container-style u-custom-color-2 u-list-item u-radius u-repeater-item u-shape-round u-list-item-3">
-              <div class="u-container-layout u-similar-container u-container-layout-3">
-                <img class="u-image u-image-contain u-image-round u-radius u-image-3" src="https://www.centrmag.ru/catalog/ss22_160321.jpg" alt="" data-image-width="933" data-image-height="999">
-                <h4 class="u-text u-text-default u-text-9">Пример заголовка</h4>
-                <p class="u-text u-text-default u-text-10">Пример текста. Кликните, чтобы выбрать элемент "Текст".</p>
-                <p class="u-text u-text-default u-text-11">Жанр:</p>
-                <div class="u-border-1 u-border-grey-75 u-hidden-xs u-palette-1-base u-radius u-shape u-shape-round u-shape-3"></div>
-                <p class="u-hidden-xs u-text u-text-12">Пример текста. Кликните, чтобы выбрать элемент "Текст".</p>
-                <a href="https://nicepage.com/wordpress-themes" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hover-grey-60 u-none u-radius u-btn-3"><span class="u-icon u-text-palette-1-base u-icon-3"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><circle cx="181.333" cy="437.333" r="53.333"></circle><path d="M509.867,89.6c-2.133-2.133-4.267-4.267-8.533-4.267H96L85.333,29.867c-2.133-4.267-6.4-8.533-10.667-8.533h-64 C4.267,21.333,0,25.6,0,32s4.267,10.667,10.667,10.667h55.467l51.2,260.267c8.533,34.133,38.4,59.733,74.667,59.733h245.333 c6.4,0,10.667-4.267,10.667-10.667c0-6.4-4.267-10.667-10.667-10.667H192c-17.067,0-34.133-8.533-42.667-23.467L460.8,275.2 c4.267,0,8.533-4.267,8.533-8.533L512,96C512,96,512,91.733,509.867,89.6z"></path><circle cx="394.667" cy="437.333" r="53.333"></circle></svg></span>
-                </a>
-              </div>
-            </div>
-            <div class="u-border-2 u-border-grey-75 u-container-style u-custom-color-2 u-list-item u-radius u-repeater-item u-shape-round u-list-item-4">
-              <div class="u-container-layout u-similar-container u-container-layout-4">
-                <img class="u-image u-image-contain u-image-round u-radius u-image-4" src="https://www.centrmag.ru/catalog/ss22_160321.jpg" alt="" data-image-width="933" data-image-height="999">
-                <h4 class="u-text u-text-default u-text-13">Пример заголовка</h4>
-                <p class="u-text u-text-default u-text-14">Пример текста. Кликните, чтобы выбрать элемент "Текст".</p>
-                <p class="u-text u-text-default u-text-15">Жанр:</p>
-                <div class="u-border-1 u-border-grey-75 u-hidden-xs u-palette-1-base u-radius u-shape u-shape-round u-shape-4"></div>
-                <p class="u-hidden-xs u-text u-text-16">Пример текста. Кликните, чтобы выбрать элемент "Текст".</p>
-                <a href="https://nicepage.com/wordpress-themes" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hover-grey-60 u-none u-radius u-btn-4"><span class="u-icon u-text-palette-1-base u-icon-4"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><circle cx="181.333" cy="437.333" r="53.333"></circle><path d="M509.867,89.6c-2.133-2.133-4.267-4.267-8.533-4.267H96L85.333,29.867c-2.133-4.267-6.4-8.533-10.667-8.533h-64 C4.267,21.333,0,25.6,0,32s4.267,10.667,10.667,10.667h55.467l51.2,260.267c8.533,34.133,38.4,59.733,74.667,59.733h245.333 c6.4,0,10.667-4.267,10.667-10.667c0-6.4-4.267-10.667-10.667-10.667H192c-17.067,0-34.133-8.533-42.667-23.467L460.8,275.2 c4.267,0,8.533-4.267,8.533-8.533L512,96C512,96,512,91.733,509.867,89.6z"></path><circle cx="394.667" cy="437.333" r="53.333"></circle></svg></span>
-                </a>
-              </div>
-            </div>-->
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    
-    
+
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-5ca6"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">ООО "FavArch" </p>
       </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>.
+    </section>
 
-  
 </body></html>

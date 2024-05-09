@@ -1,0 +1,14 @@
+msgid "The two password fields didn't match."
+msgstr "Пароли не совпадают."
+
+msgid "This password is too short. It must contain at least 8 characters."
+msgstr "Этот пароль слишком короткий. Он должен содержать не менее 8 символов."
+
+msgid "This password is too common."
+msgstr "Этот пароль слишком распространен."
+
+msgid "This password is entirely numeric."
+msgstr "Этот пароль полностью числовой."
+
+msgid "The password is too similar to the username."
+msgstr "Пароль слишком похож на имя пользователя."

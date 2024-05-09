@@ -7,6 +7,7 @@
     <title>Главная</title>
     <link rel="stylesheet" href="{% static 'Site/css/main.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'Site/css/Главная.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'Site/css/style.css' %}" media="screen">
     <script src="/static/Site/js/jquery.js"></script>
     <script class="u-script" type="text/javascript" src="{% static 'Site/js/Scrypt.js' %}" defer=""></script>
     <link rel="icon" href="{% static 'Site/img/favicon.ico'%}">
@@ -37,8 +38,33 @@
             <a  class="u-hidden-xs u-image u-logo u-image-2" data-image-width="620" data-image-height="163">
               <img src="{% static 'Site/img/Logo.png'%}" class="u-logo-image u-logo-image-2">
             </a>
-            <a href="http://127.0.0.1:8000/Error" class="u-border-2 u-border-grey-90 u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-1">Вход</a>
-            <a href="http://127.0.0.1:8000/Error" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-2">Регистрация</a>
+
+              {% if user.is_authenticated %}
+
+                    <form action="{% url 'logout' %}" method="post" type="submit" value="Logout">
+                    <a class="Btn-prof" href="{% url 'profile' %}">
+                        <div class="sign-prof"><svg width="19px" height="19px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g  stroke-width="0"></g><g gstroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.096"></g><g> <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></div>
+                        <div class="text-prof">{{ user.username }}</div>
+                    </a>
+
+
+                        {% csrf_token %}
+                    <button class="Btn-logout">
+                    <div class="sign-logout"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
+                    <div class="text-logout">Выйти</div>
+                    </button>
+                    </form>
+
+
+
+              {% else %}
+                <a href="{% url 'login' %}" class="u-border-2 u-border-grey-90 u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-1">Вход</a>
+                <a href="{% url 'register' %}" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-2">Регистрация</a>
+              {% endif %}
+
+
+
+
             <nav class="u-hidden-lg u-hidden-xl u-menu u-menu-one-level u-offcanvas u-menu-1">
               <div class="menu-collapse">
                 <a class="u-button-style u-nav-link" href="#">
@@ -49,24 +75,10 @@
               </div>
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Вход.html">Вход</a>
-</li></ul>
-              </div>
-              <div class="u-custom-menu u-nav-container-collapse">
-                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                  <div class="u-inner-container-layout u-sidenav-overflow">
-                    <div class="u-menu-close"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
-                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
-                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">Вход</a>
-                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">Регистрация</a>
-</li></ul>
-                  </div>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'Libary' %}">Библиотека</a>
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О нас</a>
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'login' %}">Вход</a>
+                    </li></ul>
               </div>
             </nav>
           </div>
@@ -89,52 +101,10 @@
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-spacing-5 u-unstyled"><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/" style="--radius:50px; padding: 10px 122px;">Главная</a>
 </li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/Libary" style="--radius:50px; padding: 10px 122px;">Библеотека</a>
-</li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/Error" style="--radius:50px; padding: 10px 122px;">О нас</a>
+</li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="{% url 'about' %}" style="--radius:50px; padding: 10px 122px;">О нас</a>
 </li></ul>
               </div>
-              <div class="u-custom-menu u-nav-container-collapse">
-                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                  <div class="u-inner-container-layout u-sidenav-overflow">
-                    <div class="u-menu-close"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библеотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
-</li></ul>
-                  </div>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-              </div>
-            </nav>
-            <nav class="u-hidden-lg u-hidden-md u-hidden-xl u-menu u-menu-one-level u-offcanvas u-menu-3">
-              <div class="menu-collapse">
-                <a class="u-button-style u-nav-link" href="#">
-                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-e3fe"></use></svg>
-                  <svg class="u-svg-content" version="1.1" id="svg-e3fe" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</g></svg>
-                </a>
-              </div>
-              <div class="u-custom-menu u-nav-container">
-                <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/" style="padding: 10px 124px;">Главная</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary" style="padding: 10px 124px;">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error" style="padding: 10px 124px;">О нас</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error" style="padding: 10px 124px;">Магазин</a>
-</li></ul>
-              </div>
-              <div class="u-custom-menu u-nav-container-collapse">
-                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                  <div class="u-inner-container-layout u-sidenav-overflow">
-                    <div class="u-menu-close"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">Магазин</a>
-</li></ul>
-                  </div>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-              </div>
-            </nav>
-          </div>
+
           
           
           
@@ -194,32 +164,60 @@
          <!--  -->
     </section>
     <section class="u-align-center u-clearfix u-gradient u-section-2" id="sec-8388">
-      <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-sheet-1"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
+        {% for el in article %}
+      <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
         <div class="u-border-2 u-border-custom-color-4 u-container-style u-expanded-width u-post-details u-radius u-shape-round u-post-details-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1"><!--blog_post_image-->
-            <a class="u-post-header-link" href="http://127.0.0.1:8000/Error"><img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1" src="{% static 'Site/img/Fantasy.jpg' %}" data-image-width="1920" data-image-height="1281"></a><!--/blog_post_image--><!--blog_post_header-->
             <h2 class="u-blog-control u-text u-text-1">
-              <a class="u-post-header-link" href="http://127.0.0.1:8000/Error">Заголовок 6-го поста</a>
+              <a class="u-post-header-link" href="{% url 'article_detail' el.id %}">{{ el.title }}</a>
             </h2><!--/blog_post_header--><!--blog_post_metadata-->
             <div class="u-blog-control u-metadata u-text-grey-30 u-metadata-1"><!--blog_post_metadata_author-->
-              <span class="u-meta-author u-meta-icon"><!--blog_post_metadata_author_content-->User<!--/blog_post_metadata_author_content--></span><!--/blog_post_metadata_author--><!--blog_post_metadata_date-->
-              <span class="u-meta-date u-meta-icon">25 апр. 2024 г.</span><!--/blog_post_metadata_date--><!--blog_post_metadata_category-->
+              <span class="u-meta-author u-meta-icon">{{ el.author }}</span><!--/blog_post_metadata_author--><!--blog_post_metadata_date-->
+              <span class="u-meta-date u-meta-icon">{{ el.date }}</span><!--/blog_post_metadata_date--><!--blog_post_metadata_category-->
               <!--/blog_post_metadata_category--><!--blog_post_metadata_comments-->
               <!--/blog_post_metadata_comments-->
             </div><!--/blog_post_metadata--><!--blog_post_content-->
-            <div class="u-align-justify u-blog-control u-post-content u-text u-text-2 fr-view">Пример текста.</div><!--/blog_post_content-->
+            <div class="u-align-justify u-blog-control u-post-content u-text u-text-2 fr-view">{{ el.premiere }}</div><!--/blog_post_content-->
           </div>
         </div><!--/blog_post--><!--/post_details-->
-        <a href="" class="u-align-center u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-1-light-2 u-palette-5-light-3 u-radius u-btn-1" title="Добавить статью">+ </a>
+          {% endfor %}
+        <button href="" class="u-align-center u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-1-light-2 u-palette-5-light-3 u-radius u-btn-1" title="Добавить статью" id="add_artBTN">+ </button>
+          <button style="display: none" href="" class="u-align-center u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-1-light-2 u-palette-5-light-3 u-radius u-btn-1" title="Добавить статью" id="add_artBTNClose">- </button>
       </div>
-      
+        <div id="add_art" style="display: none">
+            <form method="post" class="add-article">
+                {% csrf_token %}
+                {{ form.title }}
+                {{ form.premiere }}
+                {{ form.text }}
+                {{ form.author }}
+    <button type="submit">Добавить</button>
+  </form>
+        </div>
+
     </section>
-    
+
     
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-5ca6"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">ООО "FavArch" </p>
       </div></footer>
+<script>
+    const addArtBtn = document.getElementById('add_artBTN');
+const addArtBtnClose = document.getElementById('add_artBTNClose');
+const addArtBlock = document.getElementById('add_art');
 
+addArtBtn.addEventListener('click', () => {
+  addArtBlock.style.display = 'block';
+  addArtBtn.style.display = 'none';
+  addArtBtnClose.style.display = 'block';
+});
+
+addArtBtnClose.addEventListener('click', () => {
+  addArtBlock.style.display = 'none';
+  addArtBtn.style.display = 'block';
+  addArtBtnClose.style.display = 'none';
+});
+</script>
   
 </body></html>

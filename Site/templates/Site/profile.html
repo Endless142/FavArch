@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>О нас</title>
+    <title>Профиль</title>
     <link rel="stylesheet" href="{% static 'Site/css/main.css' %}" media="screen">
-    <link rel="stylesheet" href="{% static 'Site/css/О-нас  .css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'Site/css/О-нас.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'Site/css/style.css' %}" media="screen">
     <script src="/static/Site/js/jquery.js"></script>
     <script class="u-script" type="text/javascript" src="{% static 'Site/js/Scrypt.js' %}" defer=""></script>
     <meta name="generator" content="Nicepage 6.5.3, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    
-    
-    
+
+
+
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -29,21 +29,22 @@
   <body data-path-to-root="./" data-include-products="true" class="u-body u-stick-footer u-xl-mode" data-lang="ru"><header class=" u-clearfix u-header u-section-row-container" id="sec-7fbc" style="" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-section-rows">
         <div class="u-clearfix u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="sec-1765">
           <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-sheet-1">
-             <a  class="u-hidden-lg u-hidden-md u-hidden-sm u-hidden-xl u-image u-logo u-image-1" data-image-width="163" data-image-height="163">
+            <a href="" class="u-hidden-lg u-hidden-md u-hidden-sm u-hidden-xl u-image u-logo u-image-1" data-image-width="163" data-image-height="163">
               <img src="{% static 'Site/img/Simple_logo.png'%}" class="u-logo-image u-logo-image-1">
             </a>
-            <a  class="u-hidden-xs u-image u-logo u-image-2" data-image-width="620" data-image-height="163">
+              <a></a>
+            <a href="" class="u-hidden-xs u-image u-logo u-image-2" data-image-width="620" data-image-height="163">
               <img src="{% static 'Site/img/Logo.png'%}" class="u-logo-image u-logo-image-2">
             </a>
-             {% if user.is_authenticated %}
+              {% if user.is_authenticated %}
 
-                    <form action="{% url 'logout' %}" method="post" type="submit" value="Logout">
-                    <a class="Btn-prof" href="{% url 'profile' %}">
+
+                    <a class="Btn-prof" href="{% url 'profile' %}" style="visibility: hidden">
                         <div class="sign-prof"><svg width="19px" height="19px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g  stroke-width="0"></g><g gstroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.096"></g><g> <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></div>
                         <div class="text-prof">{{ user.username }}</div>
                     </a>
 
-
+                    <form action="{% url 'logout' %}" method="post" type="submit" value="Logout">
                         {% csrf_token %}
                     <button class="Btn-logout">
                     <div class="sign-logout"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
@@ -58,12 +59,41 @@
                 <a href="{% url 'register' %}" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-2">Регистрация</a>
               {% endif %}
 
+            <nav class="u-hidden-lg u-hidden-xl u-menu u-menu-one-level u-offcanvas u-menu-1">
+              <div class="menu-collapse">
+                <a class="u-button-style u-nav-link" href="#">
+                  <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-f51f"></use></svg>
+                  <svg class="u-svg-content" version="1.1" id="svg-f51f" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+                </a>
+              </div>
+              <div class="u-custom-menu u-nav-container">
+                <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}l">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Вход.html">Вход</a>
+</li></ul>
+              </div>
+              <div class="u-custom-menu u-nav-container-collapse">
+                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                  <div class="u-inner-container-layout u-sidenav-overflow">
+                    <div class="u-menu-close"></div>
+                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Вход.html">Вход</a>
+</li></ul>
+                  </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+              </div>
+            </nav>
           </div>
-          
-          
-          
-          
-          
+
+
+
+
+
         </div>
         <div class="u-hidden-md u-hidden-sm u-hidden-xs u-section-row u-section-row-2" id="sec-362f">
           <div class="u-clearfix u-sheet u-valign-middle u-sheet-2">
@@ -77,7 +107,7 @@
               </div>
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-spacing-5 u-unstyled"><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/" style="--radius:50px; padding: 10px 122px;">Главная</a>
-</li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="{% url 'Libary' %}" style="--radius:50px; padding: 10px 122px;">Библеотека</a>
+</li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/Libary" style="--radius:50px; padding: 10px 122px;">Библеотека</a>
 </li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="{% url 'about' %}" style="--radius:50px; padding: 10px 122px;">О нас</a>
 </li></ul>
               </div>
@@ -85,9 +115,9 @@
                 <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
                   <div class="u-inner-container-layout u-sidenav-overflow">
                     <div class="u-menu-close"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Главная.html">Главная</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Библиотека.html">Библеотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="О-нас.html">О нас</a>
+                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библеотека</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О нас</a>
 </li></ul>
                   </div>
                 </div>
@@ -103,9 +133,9 @@
                 </a>
               </div>
               <div class="u-custom-menu u-nav-container">
-                <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Главная.html" style="padding: 10px 124px;">Главная</a>
+                <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/" style="padding: 10px 124px;">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Библиотека.html" style="padding: 10px 124px;">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="О-нас.html" style="padding: 10px 124px;">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary" style="padding: 10px 124px;">О нас</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="products/products.html" style="padding: 10px 124px;">Магазин</a>
 </li></ul>
               </div>
@@ -113,8 +143,8 @@
                 <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
                   <div class="u-inner-container-layout u-sidenav-overflow">
                     <div class="u-menu-close"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Главная.html">Главная</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Библиотека.html">Библиотека</a>
+                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="О-нас.html">О нас</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="products/products.html">Магазин</a>
 </li></ul>
@@ -124,38 +154,55 @@
               </div>
             </nav>
           </div>
-          
-          
-          
-          
-          
+
+
+
+
+
         </div>
       </div></header>
     <section class="u-clearfix u-container-align-center u-section-1" id="sec-f91d">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-container-align-center u-container-style u-grey-10 u-group u-group-1">
-          <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <p class="u-align-center u-text u-text-default u-text-1">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet tellus cras adipiscing enim. Ut porttitor leo a diam sollicitudin. Turpis in eu mi bibendum neque egestas congue quisque egestas. Viverra adipiscing at in tellus integer. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Lectus sit amet est placerat in egestas.</p>
-          </div>
-        </div>
+      <div class="u-clearfix u-sheet u-sheet-1">
+
+
+          <div class="porf-area">
+              <h3>Добро пожаловать, {{ user.username }}!</h3>
+              <div class="gap-title">
+              <h4>Книги:</h4>
+
+              </div>
+              <div class="porf-area2">
+
+
+
+              {% if prof %}
+                {% for el in prof %}
+                  <div class="prof-book">
+                    <img src="{{ el.book.image.url }}" height="100px">
+                    <h4>{{ el.book.title }}</h4>
+                    <a href="{% url 'download' el.book.book_file.name %}">Читать</a>
+                    <a href="{% url 'book-del' el.id %}" style="margin-left: auto">
+                      <img src="{% static 'Site/img/delete.png' %}" style="height: 30px">
+                    </a>
+                  </div>
+                    {% endfor %}
+                  <div>
+
+                  </div>
+                  </div>
+
+              {% else %}
+                <a>Нет книг</a>
+              {% endif %}
+            </div>
       </div>
     </section>
-    
-    
-    
+
+
+
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-5ca6"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">ООО "FavArch" </p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
-    </section>
-  
+
+
 </body></html>

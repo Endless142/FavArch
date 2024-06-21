@@ -122,19 +122,19 @@
         <div class="custom-expanded u-active u-align-center u-carousel-item u-clearfix u-image u-section-1-1" data-image-width="1920" data-image-height="450">
           <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default u-title u-text-1">Управление библеотекой </h1>
-            <a href="http://127.0.0.1:8000/Error" class="u-align-center u-border-2 u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-hover-custom-color-5 u-none u-radius u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Read More</a>
+            <a href="{% url 'about' %}" class="u-align-center u-border-2 u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-hover-custom-color-5 u-none u-radius u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Read More</a>
           </div>
         </div>
         <div class="custom-expanded u-align-center u-carousel-item u-clearfix u-image u-section-1-2" data-image-width="1922" data-image-height="452">
           <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default u-title u-text-1">Удобный вынос цитат </h1>
-            <a href="http://127.0.0.1:8000/Error" class="u-align-center u-border-2 u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-hover-custom-color-5 u-none u-radius u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Read More</a>
+            <a href="{% url 'about' %}" class="u-align-center u-border-2 u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-hover-custom-color-5 u-none u-radius u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Read More</a>
           </div>
         </div>
         <div class="custom-expanded u-align-center u-carousel-item u-clearfix u-image u-section-1-3" data-image-width="1926" data-image-height="456">
           <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default u-title u-text-1">Добавление стороних книг </h1>
-            <a href="http://127.0.0.1:8000/Error" class="u-align-center u-border-2 u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-hover-custom-color-5 u-radius-50 u-btn-1">Read More</a>
+            <a href="{% url 'about' %}" class="u-align-center u-border-2 u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-hover-custom-color-5 u-radius-50 u-btn-1">Read More</a>
           </div>
         </div>
       </div>
@@ -164,7 +164,14 @@
          <!--  -->
     </section>
     <section class="u-align-center u-clearfix u-gradient u-section-2" id="sec-8388">
-        {% for el in article %}
+        <div>
+            <form method="GET" action="." style="margin-top: 25px">
+                <input type="text" name="q" placeholder="Поиск по названию или автору" style="width: 1000px; border-radius: 15px">
+                <button type="submit">Искать</button>
+            </form>
+        </div>
+        {% if articles %}
+        {% for el in articles %}
       <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
         <div class="u-border-2 u-border-custom-color-4 u-container-style u-expanded-width u-post-details u-radius u-shape-round u-post-details-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1"><!--blog_post_image-->
@@ -178,9 +185,19 @@
               <!--/blog_post_metadata_comments-->
             </div><!--/blog_post_metadata--><!--blog_post_content-->
             <div class="u-align-justify u-blog-control u-post-content u-text u-text-2 fr-view">{{ el.premiere }}</div><!--/blog_post_content-->
+              <div style="margin-left: auto; margin-right: 2px">
+
+                  <a href="{% url 'fav-add' el.id %}">
+                      <img src="{% static 'Site/img/star.png' %} " height="35px" style="margin-left: auto; margin-right: 2px">
+                  </a>
+
+              </div>
           </div>
         </div><!--/blog_post--><!--/post_details-->
           {% endfor %}
+          {% else %}
+                <p>Статьи по вашему запросу не найдены.</p>
+            {% endif %}
         <button href="" class="u-align-center u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-1-light-2 u-palette-5-light-3 u-radius u-btn-1" title="Добавить статью" id="add_artBTN">+ </button>
           <button style="display: none" href="" class="u-align-center u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-1-light-2 u-palette-5-light-3 u-radius u-btn-1" title="Добавить статью" id="add_artBTNClose">- </button>
       </div>

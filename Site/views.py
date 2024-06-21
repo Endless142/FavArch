@@ -17,20 +17,33 @@ from django.contrib.auth.password_validation import (
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 from django.conf import settings
+from django.db.models import Q
 
-@login_required
 def Main(request):
-    articles = Article.objects.all()
+    query = request.GET.get('q')  # Получение поискового запроса из GET-параметров
+
+    if query:
+        authors = User.objects.filter(username__startswith=query)
+        author_ids = authors.values_list('id', flat=True)  # Получаем список id
+
+        # Фильтруем статьи
+        articles = Article.objects.filter(
+            Q(title__icontains=query) |  # Поиск по названию
+            Q(author_id__in=author_ids)  # Поиск по автору
+        )
+    else:
+        articles = Article.objects.all()
+
     if request.method == 'POST':
         form = ArticleForm(request.POST, user=request.user)
         print('Форма:', form)  # Вывод данных формы
         if form.is_valid():
-            print('Форма  валидна:', form.cleaned_data)  # Вывод очищенных данных
+            print('Форма  валидна:', form.cleaned_data)
             form.save()
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         form = ArticleForm(user=request.user)
-    context = {'article': articles, 'form': form}
+    context = {'articles': articles, 'form': form, 'query': query }
     return render(request, 'Site/Главная.html', context)
 
 def article_detail(request, article_id):
@@ -42,22 +55,14 @@ def article_detail(request, article_id):
 
 def Libary(request):
     books = Book.objects.all()
-
-    # Фильтрация  по  жанру
     genre_id = request.GET.get('genre')
     if genre_id:
         books = books.filter(genre__id=genre_id)
-
-    # Фильтрация  по  автору
     author_id = request.GET.get('author')
     if author_id:
         books = books.filter(author__id=author_id)
-
-    # Фильтрация  по  другим  параметрам  (добавляйте  по  необходимости)
-
     context = {
-        'books': books,
-        'genres': Genre.objects.all(),
+        'books': books,        'genres': Genre.objects.all(),
         'authors': Author.objects.all()
     }
     return render(request, 'Site/Библиотека.html', context)
@@ -68,11 +73,13 @@ def Error(request):
 def Profile(request):
     if request.user.is_authenticated:
         context = {
-            'prof': UserBooks.objects.filter(user=request.user)
+            'prof': UserBooks.objects.filter(user=request.user),
+            'fav': Favorite.objects.filter(user=request.user)
         }
     else:
         context = {
-            'prof': UserBooks.objects.none()
+            'prof': UserBooks.objects.none(),
+            'fav': Favorite.objects.none()
         }
 
     return render(request, 'Site/profile.html', context)
@@ -82,6 +89,8 @@ class Login(LoginView):
    template_name = 'Site/auth.html'
    form_class = AuthUserForm
    succces_url = ('/profile')
+
+
 def get_success_url(self):
       return self.succces_url
 
@@ -158,3 +167,20 @@ def download_file(request, filename):
 
 def about(request):
     return render(request, "Site/О-нас.html")
+
+def FavAdd(request, fav_id):
+   fav = Article.objects.get(id=fav_id)
+   userfav = Favorite.objects.filter(user=request.user, article=fav)
+
+   if not userfav.exists():
+      Favorite.objects.create(user=request.user, article=fav)
+      return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+   else:
+
+      return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def FavDelete(request, id):
+   fav = Favorite.objects.get(id=id)
+   fav.delete()
+   return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+

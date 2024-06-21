@@ -57,7 +57,7 @@
 
               {% else %}
                 <a href="{% url 'login' %}" class="u-border-2 u-border-grey-90 u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-1">Вход</a>
-                <a href="http://127.0.0.1:8000/Error" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-2">Регистрация</a>
+                <a href="{% url 'register' %}" class="u-border-2 u-border-black u-border-hover-black u-btn u-btn-round u-button-style u-hidden-md u-hidden-sm u-hidden-xs u-hover-black u-none u-radius u-btn-2">Регистрация</a>
               {% endif %}
             <nav class="u-hidden-lg u-hidden-xl u-menu u-menu-one-level u-offcanvas u-menu-1">
               <div class="menu-collapse">
@@ -70,7 +70,7 @@
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О нас</a>
 
 </li></ul>
               </div>
@@ -80,7 +80,7 @@
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О нас</a>
 
 </li></ul>
                   </div>
@@ -108,7 +108,7 @@
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-spacing-5 u-unstyled"><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/" style="--radius:50px; padding: 10px 122px;">Главная</a>
 </li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/Libary" style="--radius:50px; padding: 10px 122px;">Библеотека</a>
-</li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="http://127.0.0.1:8000/Error" style="--radius:50px; padding: 10px 122px;">О нас</a>
+</li><li class="u-nav-item"><a class="u-active-grey-5 u-button-style u-hover-grey-15 u-nav-link u-radius u-white" href="{% url 'about' %}" style="--radius:50px; padding: 10px 122px;">О нас</a>
 </li></ul>
               </div>
               <div class="u-custom-menu u-nav-container-collapse">
@@ -117,7 +117,7 @@
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библеотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О нас</a>
 </li></ul>
                   </div>
                 </div>
@@ -135,7 +135,7 @@
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/" style="padding: 10px 124px;">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary" style="padding: 10px 124px;">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error" style="padding: 10px 124px;">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}" style="padding: 10px 124px;">О нас</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error" style="padding: 10px 124px;">Магазин</a>
 </li></ul>
               </div>
@@ -145,7 +145,7 @@
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/">Главная</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Libary">Библиотека</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">О нас</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'about' %}">О нас</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:8000/Error">Магазин</a>
 </li></ul>
                   </div>
@@ -167,26 +167,26 @@
 
            <form method="GET">
     <div>
-      <label for="genre">Жанр:</label>
-      <select name="genre" id="genre">
-        <option value="">Все жанры</option>
+      <label for="genre" style="font-size: 25px">Жанр:</label>
+      <select name="genre" id="genre" style="font-size: 25px; height: 32px; width: 500px; margin-left: 14px">
+        <option value="" style="font-size: 25px">Все жанры</option>
         {% for genre in genres %}
           <option value="{{ genre.id }}">{{ genre.name }}</option>
         {% endfor %}
       </select>
     </div>
 
-    <div>
-      <label for="author">Автор:</label>
-      <select name="author" id="author">
-        <option value="">Все авторы</option>
+    <div style="margin-top: 5px;">
+      <label for="author" style="font-size: 25px">Автор:</label>
+      <select name="author" id="author" style="font-size: 25px; height: 32px; width: 500px; margin-left: 8px">
+        <option value="" style="font-size: 25px">Все авторы</option>
         {% for author in authors %}
           <option value="{{ author.id }}">{{ author.last_name }}</option>
         {% endfor %}
       </select>
     </div>
 
-    <button type="submit">Фильтровать</button>
+    <button type="submit" class="sub-btn">Фильтровать</button>
   </form>
 
 

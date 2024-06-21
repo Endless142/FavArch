@@ -174,20 +174,33 @@
               <div class="porf-area2">
 
 
-
-              {% if prof %}
+                <div style="display: flex; flex-direction: column; gap: 10px">
+                    {% if prof %}
                 {% for el in prof %}
                   <div class="prof-book">
                     <img src="{{ el.book.image.url }}" height="100px">
                     <h4>{{ el.book.title }}</h4>
-                    <a href="{% url 'download' el.book.book_file.name %}">Читать</a>
+                    <a href="">Читать</a>
                     <a href="{% url 'book-del' el.id %}" style="margin-left: auto">
                       <img src="{% static 'Site/img/delete.png' %}" style="height: 30px">
                     </a>
                   </div>
                     {% endfor %}
+                </div>
+
                   <div>
 
+                  </div>
+                  <div>
+                    {% for elem in fav %}
+                      <div class="prof-fav">
+                          <a style="color: #0f0f0f; font-size: 20px" href="{% url 'article_detail' elem.id %}">{{ elem.article.title }}</a>
+                            <a style="height: 24px" href="{% url 'fav-del' elem.id %}">
+                                <img src="{% static 'Site/img/star-y.png' %} " height="25px"/>
+                            </a>
+                      </div>
+
+                      {% endfor %}
                   </div>
                   </div>
 
@@ -195,6 +208,7 @@
                 <a>Нет книг</a>
               {% endif %}
             </div>
+
       </div>
     </section>
 

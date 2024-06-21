@@ -146,6 +146,8 @@
   background: #e5e5e5;
   border-radius: 25px;
   padding: 10px;
+  min-height: 400px;
+  margin-bottom: 10px;
 }
 .prof-book {
   display: flex;
@@ -171,4 +173,29 @@
   display: flex;
   flex-direction: column;
   background: black;
+}
+.prof-fav {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  gap: 5px;
+  width: 400px;
+  background: whitesmoke;
+  border-radius: 10px;
+  margin-top: 5px;
+  justify-content: space-between;
+
+}
+
+.sub-btn {
+  margin-top: 5px;
+  border-radius: 25px;
+  height: 40px;
+  text-transform: uppercase;
+  background: none;
+}
+.sub-btn:hover {
+  background: black;
+  color: whitesmoke;
+  cursor: pointer;
 }

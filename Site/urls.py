@@ -8,7 +8,6 @@ from .models import *
 urlpatterns = [
     path('', views.Main),
     path('article/<int:article_id>/', views.article_detail, name='article_detail'),
-
     path('Libary', views.Libary, name='Libary'),
     path('Error', views.Error),
     path('about', views.about, name='about'),
@@ -20,4 +19,7 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('logout', views.logout, name="logout"),
     path('accounts/profile/', views.redirect_to_profile),
+    path('favAdd/<int:fav_id>/', views.FavAdd, name='fav-add'),
+    path('fav-delete/<int:id>/', views.FavDelete, name='fav-del'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
